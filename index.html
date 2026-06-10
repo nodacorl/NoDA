@@ -34,18 +34,6 @@
           <div class="is-size-4 publication-authors">
             <span class="author-block">Anonymous Author(s)</span>
           </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Code Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -158,22 +146,24 @@
           </p>
         </div>
 
-        <div class="buttons is-centered video-tabs" id="viewpoint-tabs">
-          <button class="button is-rounded is-active" data-video="microwave" data-label="Open Microwave">Open Microwave</button>
-          <button class="button is-rounded" data-video="drawer" data-label="Open Drawer">Open Drawer</button>
-          <button class="button is-rounded" data-video="corn" data-label="Pick &amp; Place Corn">Pick &amp; Place Corn</button>
-          <button class="button is-rounded" data-video="chair" data-label="Push Chair">Push Chair</button>
-          <button class="button is-rounded" data-video="fridge" data-label="Open Fridge">Open Fridge</button>
-          <button class="button is-rounded" data-video="box" data-label="Carry Box">Carry Box</button>
-        </div>
+        <div class="video-switcher" data-dir="./static/videos">
+          <div class="buttons is-centered video-tabs">
+            <button class="button is-rounded is-active" data-video="microwave" data-label="Open Microwave">Open Microwave</button>
+            <button class="button is-rounded" data-video="drawer" data-label="Open Drawer">Open Drawer</button>
+            <button class="button is-rounded" data-video="corn" data-label="Pick &amp; Place Corn">Pick &amp; Place Corn</button>
+            <button class="button is-rounded" data-video="chair" data-label="Push Chair">Push Chair</button>
+            <button class="button is-rounded" data-video="fridge" data-label="Open Fridge">Open Fridge</button>
+            <button class="button is-rounded" data-video="box" data-label="Carry Box">Carry Box</button>
+          </div>
 
-        <div class="viewpoint-video-wrap">
-          <video id="viewpoint-video" src="./static/videos/microwave.mp4"
-                 autoplay loop muted playsinline controls></video>
+          <div class="viewpoint-video-wrap">
+            <video src="./static/videos/microwave.mp4"
+                   autoplay loop muted playsinline controls></video>
+          </div>
+          <p class="has-text-grey is-size-6" style="margin-top:0.5rem;">
+            Now showing: <span class="switcher-caption">Open Microwave</span>
+          </p>
         </div>
-        <p class="has-text-grey is-size-6" style="margin-top:0.5rem;">
-          Now showing: <span id="viewpoint-caption">Open Microwave</span>
-        </p>
       </div>
     </div>
   </div>
@@ -221,6 +211,43 @@
               <tr class="mean-row"><td class="has-text-left"><b>mean (%)</b></td><td>32.8</td><td><b>41.7</b></td><td>45.6</td><td><b>53.9</b></td><td>55.6</td><td><b>65.0</b></td><td>70.6</td><td><b>78.9</b></td></tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Real-Robot Rollouts (videos) -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Real-Robot Rollouts</h2>
+        <div class="content has-text-justified">
+          <p>
+            Select a task to play an autonomous real-robot rollout of a NoDA-trained policy. Each video
+            shows the raw demonstration distribution alongside the policy executing the task from a novel
+            robot base pose (playback at 4&times;).
+          </p>
+        </div>
+
+        <div class="video-switcher" data-dir="./static/videos/realrobot">
+          <div class="buttons is-centered video-tabs">
+            <button class="button is-rounded is-active" data-video="microwave" data-label="Open Microwave">Open Microwave</button>
+            <button class="button is-rounded" data-video="drawer" data-label="Open Drawer">Open Drawer</button>
+            <button class="button is-rounded" data-video="corn" data-label="Pick &amp; Place Corn">Pick &amp; Place Corn</button>
+            <button class="button is-rounded" data-video="chair" data-label="Push Chair">Push Chair</button>
+            <button class="button is-rounded" data-video="fridge" data-label="Open Fridge">Open Fridge</button>
+            <button class="button is-rounded" data-video="box" data-label="Carry Box">Carry Box</button>
+          </div>
+
+          <div class="viewpoint-video-wrap">
+            <video src="./static/videos/realrobot/microwave.mp4"
+                   autoplay loop muted playsinline controls></video>
+          </div>
+          <p class="has-text-grey is-size-6" style="margin-top:0.5rem;">
+            Now showing: <span class="switcher-caption">Open Microwave</span>
+          </p>
         </div>
       </div>
     </div>
