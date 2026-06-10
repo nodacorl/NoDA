@@ -178,10 +178,6 @@ body {
   text-align: center;
 }
 /* ---- NoDA additions ---- */
-.title, .subtitle, .publication-authors, .publication-title {
-  font-family: 'Google Sans', sans-serif;
-}
-
 .figure-img {
   max-width: 100%;
   height: auto;
