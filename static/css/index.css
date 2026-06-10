@@ -1,8 +1,16 @@
 body {
-  font-family: 'Noto Sans', 'Google Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.title,
+.subtitle,
+.publication-authors,
+.teaser {
+  font-family: 'Google Sans', sans-serif;
 }
 
 .publication-title {
+  font-family: 'Google Sans', sans-serif;
   font-weight: 600;
 }
 
