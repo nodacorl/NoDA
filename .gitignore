@@ -1,0 +1,3 @@
+# source vector figures (PNG renders are published instead)
+static/images/*.pdf
+.DS_Store
