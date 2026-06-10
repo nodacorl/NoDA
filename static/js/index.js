@@ -1,22 +1,72 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var tabs = document.getElementById('viewpoint-tabs');
-  var video = document.getElementById('viewpoint-video');
-  var caption = document.getElementById('viewpoint-caption');
-  if (!tabs || !video) return;
+window.HELP_IMPROVE_VIDEOJS = false;
 
-  tabs.addEventListener('click', function (e) {
-    var btn = e.target.closest('button[data-video]');
-    if (!btn) return;
+var INTERP_BASE = "https://storage.googleapis.com/nerfies-public/interpolation/stacked";
+var NUM_INTERP_FRAMES = 240;
 
-    tabs.querySelectorAll('button').forEach(function (b) {
-      b.classList.remove('is-active');
+var interp_images = [];
+function preloadInterpolationImages() {
+  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
+    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
+    interp_images[i] = new Image();
+    interp_images[i].src = path;
+  }
+}
+
+function setInterpolationImage(i) {
+  var image = interp_images[i];
+  image.ondragstart = function() { return false; };
+  image.oncontextmenu = function() { return false; };
+  $('#interpolation-image-wrapper').empty().append(image);
+}
+
+
+$(document).ready(function() {
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
     });
-    btn.classList.add('is-active');
 
-    var name = btn.getAttribute('data-video');
-    video.src = './static/videos/' + name + '.mp4';
-    video.play().catch(function () { /* autoplay may be blocked; controls remain */ });
+    var options = {
+			slidesToScroll: 1,
+			slidesToShow: 3,
+			loop: true,
+			infinite: true,
+			autoplay: false,
+			autoplaySpeed: 3000,
+    }
 
-    if (caption) caption.textContent = btn.getAttribute('data-label');
-  });
-});
+		// Initialize all div with carousel class
+    var carousels = bulmaCarousel.attach('.carousel', options);
+
+    // Loop on each carousel initialized
+    for(var i = 0; i < carousels.length; i++) {
+    	// Add listener to  event
+    	carousels[i].on('before:show', state => {
+    		console.log(state);
+    	});
+    }
+
+    // Access to bulmaCarousel instance of an element
+    var element = document.querySelector('#my-element');
+    if (element && element.bulmaCarousel) {
+    	// bulmaCarousel instance is available as element.bulmaCarousel
+    	element.bulmaCarousel.on('before-show', function(state) {
+    		console.log(state);
+    	});
+    }
+
+    /*var player = document.getElementById('interpolation-video');
+    player.addEventListener('loadedmetadata', function() {
+      $('#interpolation-slider').on('input', function(event) {
+        console.log(this.value, player.duration);
+        player.currentTime = player.duration / 100 * this.value;
+      })
+    }, false);*/
+    // (interpolation gallery not used on this page)
+
+    bulmaSlider.attach();
+
+})

@@ -4,59 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NoDA: Scaling Mobile Manipulation via Plug-and-Play Novel Demonstration Augmentation</title>
-  <meta name="description" content="NoDA: a calibration-free, plug-and-play novel demonstration augmentation framework for scaling mobile manipulation.">
+  <meta name="description" content="NoDA: a calibration free, plug and play novel demonstration augmentation framework for scaling mobile manipulation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./static/css/index.css">
-  <script defer src="./static/js/index.js"></script>
 </head>
 <body>
 
 <!-- Hero / Title -->
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">
-            NoDA: Scaling Mobile Manipulation via<br>Plug-and-Play Novel Demonstration Augmentation
+          <h1 class="title is-1 publication-title">
+            NoDA: Scaling Mobile Manipulation via<br>
+            <span style="font-weight: normal;">Plug-and-Play Novel Demonstration Augmentation</span>
           </h1>
-
-          <div class="is-size-5 publication-authors">
+          <h2 class="subtitle is-4 publication-venue" style="margin-top: 0.5rem;">
+            10th Conference on Robot Learning (CoRL 2026) &middot; Under Review
+          </h2>
+          <div class="is-size-4 publication-authors">
             <span class="author-block">Anonymous Author(s)</span>
           </div>
-          <div class="is-size-6 publication-authors">
-            <span class="author-block">Under review &mdash; 10th Conference on Robot Learning (CoRL 2026)</span>
-          </div>
 
-          <div class="publication-links">
-            <span class="link-block">
-              <a href="#" class="external-link button is-rounded is-dark" aria-disabled="true">
-                <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                <span>Paper</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="#" class="external-link button is-rounded is-dark" aria-disabled="true">
-                <span class="icon"><i class="ai ai-arxiv"></i></span>
-                <span>arXiv</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="#" class="external-link button is-rounded is-dark" aria-disabled="true">
-                <span class="icon"><i class="fab fa-github"></i></span>
-                <span>Code</span>
-              </a>
-            </span>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+            <p class="is-size-7 has-text-grey" style="margin-top:0.6rem;">
+              Code will be released. Other links are withheld during anonymous review.
+            </p>
           </div>
-          <p class="is-size-7 has-text-grey" style="margin-top:0.6rem;">
-            Paper, arXiv, and code links are withheld during anonymous review.
-          </p>
         </div>
       </div>
     </div>
@@ -68,29 +63,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <img src="./static/images/teaser.png" alt="NoDA teaser" class="figure-img">
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">NoDA</span> converts a single mobile-manipulation demonstration into
-        new ones in the same VLA format &mdash; no calibration, scene scans, or URDFs &mdash;
-        delivering up to a <b>1.35&times;</b> data-efficiency gain.
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        <span class="dnerf">NoDA</span> converts a single mobile manipulation demonstration into
+        new ones in the same VLA format, with no calibration, scene scans, or URDFs,
+        delivering up to a <b>1.35&times;</b> data efficiency gain.
       </h2>
-    </div>
-  </div>
-</section>
-
-<!-- TL;DR -->
-<section class="section" style="padding-top:1.5rem;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="notification tldr-box">
-          <p><b>TL;DR.</b> NoDA is a plug-and-play framework that takes a standard VLA tuple of
-          multi-camera RGB and end-effector trajectory and emits new demonstrations in the same format.
-          It splits each demonstration at first contact: the <b>approach phase</b> freely perturbs the base
-          and renders novel viewpoints with a multi-view 3D foundation model, while the <b>contact phase</b>
-          perturbs the base slightly but holds the end-effector world trajectory identical to the source,
-          preserving the object's world motion across augmentations.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -99,25 +76,25 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Mobile manipulation policies require demonstrations that span a wide distribution of
-            base-induced viewpoints with coupled base-arm action, making data scaling the dominant
+            base induced viewpoints with coupled base and arm action, making data scaling the dominant
             bottleneck of the setting. Existing demonstration augmentation methods either stay restricted
-            to viewpoint-invariant edits or require inputs that ordinary VLA training data lacks, such as
-            calibrated 3D capture, simulators, or object-pose tracking. We propose <b>NoDA</b>, or
-            <b>No</b>vel <b>D</b>emonstration <b>A</b>ugmentation, a calibration-free framework that
-            consumes a standard VLA tuple of multi-camera RGB and end-effector trajectory and emits new
+            to viewpoint invariant edits or require inputs that ordinary VLA training data lacks, such as
+            calibrated 3D capture, simulators, or object pose tracking. We propose <b>NoDA</b>, or
+            <b>No</b>vel <b>D</b>emonstration <b>A</b>ugmentation, a calibration free framework that
+            consumes a standard VLA tuple of multi camera RGB and end effector trajectory and emits new
             demonstrations in the same format. NoDA splits each demonstration at the moment of first
             contact: in the approach phase the base is freely perturbed and the new viewpoint is rendered
-            by a multi-view 3D foundation model; in the contact phase the base is perturbed only slightly
-            while the end-effector world trajectory is held identical to the source, preserving the
-            object's world trajectory across augmentations. The foundation model is fine-tuned once on
-            AgiBot World Beta as <b>NoDA-FT</b> and deployed zero-shot to user-collected data, with no
-            per-setup calibration or retraining. Real-robot experiments on &pi;<sub>0.5</sub> achieve up to
-            a <b>1.35&times;</b> data-efficiency gain across six mobile manipulation tasks.
+            by a multi view 3D foundation model; in the contact phase the base is perturbed only slightly
+            while the end effector world trajectory is held identical to the source, preserving the
+            object's world trajectory across augmentations. The foundation model is fine tuned once on
+            AgiBot World Beta as <b>NoDA-FT</b> and deployed zero shot to user collected data, with no
+            per setup calibration or retraining. Real robot experiments on &pi;<sub>0.5</sub> achieve up to
+            a <b>1.35&times;</b> data efficiency gain across six mobile manipulation tasks.
           </p>
         </div>
       </div>
@@ -129,11 +106,12 @@
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview Video</h2>
-        <div class="publication-video-placeholder">
-          <p><i class="fas fa-film"></i>&nbsp; Video coming soon.</p>
-        </div>
+      <div class="column is-full-width">
+        <h2 class="title is-2">Video</h2>
+        <video class="overview-video" controls playsinline poster="./static/images/teaser.png">
+          <source src="./static/videos/overview.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
@@ -143,22 +121,22 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Method Overview</h2>
+      <div class="column is-full-width">
+        <h2 class="title is-2">Method Overview</h2>
         <img src="./static/images/method.png" alt="NoDA pipeline" class="figure-img">
         <div class="content has-text-justified" style="margin-top:1rem;">
           <p>
             A demonstration decomposes naturally into an <b>approach phase</b>, in which the gripper moves
-            toward the object but has not yet made contact, and a <b>contact-manipulation phase</b>, in which
-            the gripper is in contact and base-arm coordination drives the task forward. In the approach
+            toward the object but has not yet made contact, and a <b>contact manipulation phase</b>, in which
+            the gripper is in contact and base and arm coordination drives the task forward. In the approach
             phase NoDA freely perturbs the base trajectory and renders the resulting novel viewpoints with a
-            multi-view 3D foundation model that produces metric-scaled camera poses and per-pixel Gaussian
+            multi view 3D foundation model that produces metric scaled camera poses and per pixel Gaussian
             primitives from RGB alone. In the contact phase NoDA perturbs the base while holding the
-            end-effector world trajectory identical to the source, so the object world trajectory is
-            unchanged and the augmented end-effector-relative-to-base pose follows directly from the
-            perturbed base &mdash; without joint angles or kinematic-chain inversion. The foundation model is
-            fine-tuned once on AgiBot World Beta as <b>NoDA-FT</b> and deployed zero-shot to user-collected
-            data, with no per-setup calibration, scanning, or retraining.
+            end effector world trajectory identical to the source, so the object world trajectory is
+            unchanged and the augmented end effector pose relative to the base follows directly from the
+            perturbed base, without joint angles or kinematic chain inversion. The foundation model is
+            fine tuned once on AgiBot World Beta as <b>NoDA-FT</b> and deployed zero shot to user collected
+            data, with no per setup calibration, scanning, or retraining.
           </p>
         </div>
       </div>
@@ -170,12 +148,12 @@
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Tasks &amp; Scenes</h2>
-        <img src="./static/images/tasks.png" alt="Six real-robot mobile manipulation tasks" class="figure-img">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Tasks &amp; Scenes</h2>
+        <img src="./static/images/tasks.png" alt="Six real robot mobile manipulation tasks" class="figure-img">
         <p class="has-text-grey" style="margin-top:0.75rem;">
-          Six real-robot mobile manipulation tasks spanning the base-arm coordination spectrum, from
-          pure-base navigation to bimanual transport: <b>open microwave</b>, <b>open drawer</b>,
+          Six real robot mobile manipulation tasks spanning the base and arm coordination spectrum, from
+          pure base navigation to bimanual transport: <b>open microwave</b>, <b>open drawer</b>,
           <b>pick and place corn</b>, <b>push chair</b>, <b>open fridge</b>, and <b>carry box</b>.
         </p>
       </div>
@@ -187,26 +165,28 @@
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Augmented Viewpoints</h2>
-        <p class="content has-text-justified">
-          Select a task to play its augmented viewpoints. In each video, the leftmost panel is the source
-          head view (<b>GT</b>), and the remaining panels are novel viewpoints generated by NoDA under a pure
-          base rotation (<b>&plusmn;8&deg;</b>) and a pure base translation (<b>10&nbsp;cm</b>). Scene
-          geometry is preserved across the augmentation; only the base pose changes.
-        </p>
+      <div class="column is-full-width">
+        <h2 class="title is-2">Augmented Viewpoints</h2>
+        <div class="content has-text-justified">
+          <p>
+            Select a task to play its augmented viewpoints. In each video, the leftmost panel is the source
+            head view (<b>GT</b>), and the remaining panels are novel viewpoints generated by NoDA under a pure
+            base rotation (<b>&plusmn;8&deg;</b>) and a pure base translation (<b>10&nbsp;cm</b>). Scene
+            geometry is preserved across the augmentation; only the base pose changes.
+          </p>
+        </div>
 
         <div class="buttons is-centered video-tabs" id="viewpoint-tabs">
-          <button class="button is-rounded is-dark is-active" data-video="microwave" data-label="Open Microwave">Open Microwave</button>
-          <button class="button is-rounded is-dark" data-video="drawer" data-label="Open Drawer">Open Drawer</button>
-          <button class="button is-rounded is-dark" data-video="corn" data-label="Pick &amp; Place Corn">Pick &amp; Place Corn</button>
-          <button class="button is-rounded is-dark" data-video="chair" data-label="Push Chair">Push Chair</button>
-          <button class="button is-rounded is-dark" data-video="fridge" data-label="Open Fridge">Open Fridge</button>
-          <button class="button is-rounded is-dark" data-video="box" data-label="Carry Box">Carry Box</button>
+          <button class="button is-rounded is-active" data-video="microwave" data-label="Open Microwave">Open Microwave</button>
+          <button class="button is-rounded" data-video="drawer" data-label="Open Drawer">Open Drawer</button>
+          <button class="button is-rounded" data-video="corn" data-label="Pick &amp; Place Corn">Pick &amp; Place Corn</button>
+          <button class="button is-rounded" data-video="chair" data-label="Push Chair">Push Chair</button>
+          <button class="button is-rounded" data-video="fridge" data-label="Open Fridge">Open Fridge</button>
+          <button class="button is-rounded" data-video="box" data-label="Carry Box">Carry Box</button>
         </div>
 
         <div class="viewpoint-video-wrap">
-          <video id="viewpoint-video" class="figure-img" src="./static/videos/microwave.mp4"
+          <video id="viewpoint-video" src="./static/videos/microwave.mp4"
                  autoplay loop muted playsinline controls></video>
         </div>
         <p class="has-text-grey is-size-6" style="margin-top:0.5rem;">
@@ -221,15 +201,15 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Results</h2>
+      <div class="column is-full-width">
+        <h2 class="title is-2">Results</h2>
         <div class="content has-text-justified">
           <p>
-            Real-robot success rates (out of 30 trials) across six tasks and four source-data budgets, with
+            Real robot success rates (out of 30 trials) across six tasks and four source data budgets, with
             and without NoDA. The NoDA condition adds <i>N</i>&nbsp;=&nbsp;4 augmented episodes per source
             (a 5&times; training set). NoDA improves over the raw baseline in <b>every cell</b>, with mean
-            absolute gain stable at 8.3%&ndash;9.4% across all budgets &mdash; up to a <b>1.35&times;</b>
-            data-efficiency gain at low source budgets.
+            absolute gain stable at 8.3% to 9.4% across all budgets, up to a <b>1.35&times;</b>
+            data efficiency gain at low source budgets.
           </p>
         </div>
         <div class="table-container">
@@ -265,20 +245,6 @@
   </div>
 </section>
 
-<!-- BibTeX -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3">BibTeX</h2>
-    <pre class="bibtex"><code>@inproceedings{noda2026,
-  title     = {NoDA: Scaling Mobile Manipulation via Plug-and-Play Novel Demonstration Augmentation},
-  author    = {Anonymous},
-  booktitle = {Conference on Robot Learning (CoRL)},
-  year      = {2026},
-  note      = {Under review}
-}</code></pre>
-  </div>
-</section>
-
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
@@ -286,13 +252,20 @@
         <p>
           This website is licensed under a
           <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
-          Attribution-ShareAlike 4.0 International License</a>. The page template is adapted from the
-          <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+          Attribution-ShareAlike 4.0 International License</a>. The page template is adapted from
+          <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
         </p>
       </div>
     </div>
   </div>
 </footer>
+
+<script src="./static/js/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+<script src="./static/js/viewpoints.js"></script>
 
 </body>
 </html>
